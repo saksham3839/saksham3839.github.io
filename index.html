@@ -54,16 +54,15 @@
                     var output = document.getElementById("output");
 
                     function clickHandler(){
-                        var sum = parseInt(num1.value) + parseInt(num2.value);
-                        output.innerHTML = "sum is " + sum;
-                    }
-
-                    button.addEventListener("click",Tesseract.recognize(
+                        Tesseract.recognize(
                         'text.jpg',
                         'eng',
                         { logger: m => console.log(m) }
                         ).then(({ data: { text } }) => {console.log(text);
-                        }));
+                        })
+                    }
+
+                    button.addEventListener("click",clickHandler);
                     
 
 
