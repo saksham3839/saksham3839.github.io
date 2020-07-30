@@ -58,13 +58,14 @@
                         output.innerHTML = "sum is " + sum;
                     }
 
-                    button.addEventListener("click",Tesseract.recognize(
+                    button.addEventListener("click",clickHandler);
+                    Tesseract.recognize(
                         'text.jpg',
                         'eng',
                         { logger: m => console.log(m) }
                         ).then(({ data: { text } }) => {console.log(text);
-                        }));
-                    
+                        })
+
 
                 </script>
                 <div class="col-sm-4">
