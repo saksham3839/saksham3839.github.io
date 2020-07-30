@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A Webpage</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+    </head>
+
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <div class="jumbotron text-center" style="background-color: steelblue; color:black;">
+        <h1>This Is A Header</h1>
+        <small>any doubt</small>
+        </div>
+        
+        <div class="container-fluid" style="background-color: violet;">
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                    <h1>column 1</h1>
+                    <p>this is a paragraph right here</p>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <h1>column 2</h1>
+                    <p>this is also a paragraph right here</p>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <h1>column 3</h1>
+                    <p>this is also a paragraph></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <span id="output"></span>
+
+                </div>
+                <div class="col-sm-4 text-center">
+                    <label for="num1">Enter the first number:</label><br>
+                    <input type="text" id="num1"> </input><br>
+                    <label for="num2">Enter the second number:</label><br>
+                    <input type="text" id="num2"> </input><br>
+                    <input type="submit" value="SUM" id="sum"></input>
+                </div>
+                <script>
+                    var button = document.getElementById("sum");
+                    var num1 = document.getElementById("num1");
+                    var num2 = document.getElementById("num2");
+                    var output = document.getElementById("output");
+
+                    function clickHandler(){
+                        var sum = parseInt(num1.value) + parseInt(num2.value);
+                        output.innerHTML = "sum is " + sum;
+                    }
+
+                    button.addEventListener("click",clickHandler);
+                    Tesseract.recognize(
+                        'text.jpg',
+                        'eng',
+                        { logger: m => console.log(m) }
+                        ).then(({ data: { text } }) => {console.log(text);
+                        })
+
+
+                </script>
+                <div class="col-sm-4">
+                    
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
