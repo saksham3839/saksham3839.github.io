@@ -83,7 +83,7 @@
                 output.innerHTML = "Started";
                 var file = document.getElementById("file-selector").files[0];
                 Tesseract.recognize(
-                "text.jpg",
+                file,
                 'eng',
                 { logger: m => completed.innerHTML = m.progress.toFixed(2) * 100 }
                 ).then(({ data: { text } }) => {console.log(text); txt = text;lists.innerHTML = txt;var tmp = "";
